@@ -9,39 +9,27 @@ import {
 } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
 import colorSharp2 from "../assets/img/color-sharp2.png";
-import projImg1 from "../assets/img/project-img1.png";
+import projImg1 from "../assets/img/app-tareas.png";
 import projImg2 from "../assets/img/project-img2.png";
 import projImg3 from "../assets/img/project-img3.png";
 
 export const Projects = () => {
   const projects = [
     {
-      title: "proyecto1",
-      description: "development",
-      imgURL: projImg1,
+      title: "BlackJack",
+      description: "Proyecto básico",
+      imgURL: projImg2,
+      direccion:
+        "https://6495aed794575143402df67b--tourmaline-zuccutto-3b484e.netlify.app/",
     },
     {
-      title: "proyecto2",
-      description: "development",
-      imgURL: projImg2,
+      title: "Tareas/Todo",
+      description: "Proyecto básico",
+      imgURL: projImg1,
+      direccion: "https://cool-kataifi-92bd36.netlify.app/",
     },
     {
       title: "proyecto3",
-      description: "development",
-      imgURL: projImg3,
-    },
-    {
-      title: "proyecto4",
-      description: "development",
-      imgURL: projImg1,
-    },
-    {
-      title: "proyecto5",
-      description: "development",
-      imgURL: projImg2,
-    },
-    {
-      title: "proyecto6",
       description: "development",
       imgURL: projImg3,
     },
@@ -68,13 +56,13 @@ export const Projects = () => {
                 id="pills-tab"
               >
                 <Nav.Item>
-                  <Nav.Link eventKey="first">Tab one</Nav.Link>
+                  <Nav.Link eventKey="first">JavaScript Moderno</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="second">Option 2</Nav.Link>
+                  <Nav.Link eventKey="second">Opcion 2</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="third">Disabled</Nav.Link>
+                  <Nav.Link eventKey="third">Opcion 3</Nav.Link>
                 </Nav.Item>
               </Nav>
               <TabContent>
@@ -85,8 +73,8 @@ export const Projects = () => {
                     })}
                   </Row>
                 </TabPane>
-                <TabPane eventKey="second">loren indu</TabPane>
-                <TabPane eventKey="third">loren indu</TabPane>
+                <TabPane eventKey="second">En proceso</TabPane>
+                <TabPane eventKey="third">En proceso</TabPane>
               </TabContent>
             </TabContainer>
           </Col>
