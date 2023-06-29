@@ -1,6 +1,6 @@
 export const getEnvVariable = () => {
-  import.meta.env;
+  `import.meta.env\u200b.env.MODE`;
   return {
-    ...import.meta.env,
+    ...`import.meta.env\u200b.env.MODE`,
   };
 };
