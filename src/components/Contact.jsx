@@ -10,35 +10,48 @@ import portafolioApi from "../api/portafolioApi";
 
 const formIni = {
   firstName: "",
-  lastName: "",
   email: "",
-  phone: "",
+  asunto: "",
   message: "",
   onInputChange: "",
 };
 
 export const Contact = () => {
-  const { firstName, lastName, email, phone, message, onInputChange } =
-    useForm(formIni);
+  const { firstName, email, asunto, message, onInputChange } = useForm(formIni);
 
   const onSumitd = async (event) => {
     event.preventDefault();
+    const nombre = firstName;
     const correoDestino = email;
+    const asuntop = asunto;
     const contenido = message;
-    const asunto = firstName;
+
+    // console.log(nombre, correoDestino, asuntop, contenido);
     try {
       const { data } = await portafolioApi.post("form", {
+        nombre,
         correoDestino,
+        asuntop,
         contenido,
-        asunto,
       });
       console.log(data);
 
       Swal.fire("Enviado", "Muy pronto me contactaré contigo", "success");
     } catch (error) {
-      console.log(error);
-
-      Swal.fire("Error al Enviar", "Vuelva a intentar", "error");
+      const prueba = error.response.data.errors;
+      console.log(prueba);
+      //console.log(error.response.data.errors);
+      if (prueba) {
+        for (let index = 0; index < prueba.length; index++) {
+          const element = prueba[index];
+          console.log(element);
+        }
+      }
+      //if (errores) {
+      // errores.forEach((error) => {
+      //     Swal.fire("Error al Enviar", error.smg, "error");
+      //   });
+      // }
     }
   };
   return (
@@ -69,24 +82,16 @@ export const Contact = () => {
                   <h2>Contactamé</h2>
                   <form className="align-items-center" onSubmit={onSumitd}>
                     <Row>
-                      <Col size={12} sm={6} className="px-1">
+                      <Col size={12} sm={12} className="px-1">
                         <input
                           type="text"
-                          placeholder="Nombre"
+                          placeholder="Nombre Completo"
                           name="firstName"
                           value={firstName}
                           onChange={onInputChange}
                         />
                       </Col>
-                      <Col size={12} sm={6} className="px-1">
-                        <input
-                          type="text"
-                          placeholder="Apellido"
-                          name="lastName"
-                          value={lastName}
-                          onChange={onInputChange}
-                        />
-                      </Col>
+
                       <Col size={12} sm={6} className="px-1">
                         <input
                           type="email"
@@ -98,10 +103,10 @@ export const Contact = () => {
                       </Col>
                       <Col size={12} sm={6} className="px-1">
                         <input
-                          type="tel"
-                          placeholder="Phone"
-                          name="phone"
-                          value={phone}
+                          type="text"
+                          placeholder="asunto"
+                          name="asunto"
+                          value={asunto}
                           onChange={onInputChange}
                         />
                       </Col>
