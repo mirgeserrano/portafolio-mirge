@@ -17,7 +17,8 @@ const formIni = {
 };
 
 export const Contact = () => {
-  const { firstName, email, asunto, message, onInputChange } = useForm(formIni);
+  const { firstName, email, asunto, message, onInputChange, onResetForm } =
+    useForm(formIni);
 
   const onSumitd = async (event) => {
     event.preventDefault();
@@ -25,7 +26,6 @@ export const Contact = () => {
     const correoDestino = email;
     const asuntop = asunto;
     const contenido = message;
-
     try {
       const { data } = await portafolioApi.post("form", {
         nombre,
@@ -34,6 +34,7 @@ export const Contact = () => {
         contenido,
       });
       Swal.fire("Enviado", "Muy pronto me contactaré contigo", "success");
+      onResetForm();
     } catch (error) {
       const errors = Object.values(error.response.data.errors);
       errors.reverse().forEach((error) => {
