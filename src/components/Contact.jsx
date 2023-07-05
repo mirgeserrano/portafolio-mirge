@@ -26,7 +26,6 @@ export const Contact = () => {
     const asuntop = asunto;
     const contenido = message;
 
-    // console.log(nombre, correoDestino, asuntop, contenido);
     try {
       const { data } = await portafolioApi.post("form", {
         nombre,
@@ -34,24 +33,16 @@ export const Contact = () => {
         asuntop,
         contenido,
       });
-      console.log(data);
-
       Swal.fire("Enviado", "Muy pronto me contactaré contigo", "success");
     } catch (error) {
-      const prueba = error.response.data.errors;
-      console.log(prueba);
-      //console.log(error.response.data.errors);
-      if (prueba) {
-        for (let index = 0; index < prueba.length; index++) {
-          const element = prueba[index];
-          console.log(element);
-        }
-      }
-      //if (errores) {
-      // errores.forEach((error) => {
-      //     Swal.fire("Error al Enviar", error.smg, "error");
-      //   });
-      // }
+      const errors = Object.values(error.response.data.errors);
+      errors.reverse().forEach((error) => {
+        Swal.fire({
+          title: "Mensaje de error",
+          text: error.msg,
+          icon: "error",
+        });
+      });
     }
   };
   return (
@@ -113,7 +104,7 @@ export const Contact = () => {
                       <Col size={12} className="px-1">
                         <textarea
                           rows="6"
-                          placeholder="Message"
+                          placeholder="Contenido"
                           name="message"
                           value={message}
                           onChange={onInputChange}
