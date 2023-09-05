@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { ArrowRightCircle } from "react-bootstrap-icons";
 import headerImg from "../assets/img/header-img.svg";
 
 export const Banner = () => {
-  const toRotate = ["web developer", "web designer", "ui/ux designer"];
+  const toRotate = ["web developer", "web designer"];
   const period = 1000;
 
   const [loopNum, setLoopNum] = useState(0);
@@ -57,12 +56,8 @@ export const Banner = () => {
               fascinante industria, he estado dedicado a resolver desafíos
               técnicos y crear soluciones innovadoras.
             </p>
-            <button onClick={() => console.log("hi")}>
-              Contactame
-              <ArrowRightCircle size={25} />
-            </button>
           </Col>
-          <Col xs={12} md={6} xl={7}>
+          <Col xs={12} md={6} xl={7} xxl={4}>
             <img src={headerImg} alt="Headder img" />
           </Col>
         </Row>
