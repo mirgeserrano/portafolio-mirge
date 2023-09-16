@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "../assets/img/header-img.svg";
 
 export const Banner = () => {
-  const toRotate = ["web developer", "web designer"];
+  const toRotate = ["web developer", "eb designer"];
   const period = 1000;
 
   const [loopNum, setLoopNum] = useState(0);
