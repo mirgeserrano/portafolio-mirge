@@ -1,8 +1,9 @@
-# Proyect Mi Portafolio :house:
+# Proyect Mi Portafolio 📄✏️
 Realizado con 🔧
 - Vite
-- React js
-- Css3
+- Front-end library: React js
+- CSS framework: React-bootstrap
+- CSS animations library: Animate.css
 
 # Clone is repositore:
    git clone
