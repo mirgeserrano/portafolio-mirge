@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { Col } from "react-bootstrap";
 
-export const ProjectCard = ({ title, description, imgURL, direccion }) => {
+export const ProjectCard = ({title, description, imgURL, direccion} ) => {
   return (
     <Col sm={6} md={4}>
       <div className="proj-imgbx">
@@ -16,3 +16,4 @@ export const ProjectCard = ({ title, description, imgURL, direccion }) => {
     </Col>
   );
 };
+

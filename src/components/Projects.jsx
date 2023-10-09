@@ -69,7 +69,7 @@ export const Projects = () => {
                 <TabPane eventKey="first">
                   <Row>
                     {projects.map((project, index) => {
-                      return <ProjectCard key={index} {...project} />;
+                      return <ProjectCard key={index} title={project.title} description={project.description} imgURL={project.imgURL} direccion={project.direccion} />;
                     })}
                   </Row>
                 </TabPane>

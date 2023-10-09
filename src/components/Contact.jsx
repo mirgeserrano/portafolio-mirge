@@ -33,6 +33,7 @@ export const Contact = () => {
         asuntop,
         contenido,
       });
+      console.log(data);
       Swal.fire("Enviado", "Muy pronto me contactaré contigo", "success");
       onResetForm();
     } catch (error) {
